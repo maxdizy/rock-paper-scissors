@@ -3,7 +3,7 @@ December 11, 2020
 ICS4U
 Mr. Hofstatter
 verification
-class to verify user inputs*/
+JAVA class to verify user inputs*/
 import java.util.*;
 
 public class verification{
@@ -51,14 +51,32 @@ public class verification{
 /*varifies if user input is a integer
   Pre: user input
   Post: returns boolean value if the input is valid or not*/
-  public static boolean checkInt(int num){
-    int[] numbers = {1,2,3,4,5,6,7,8,9,0};
-    for (int digit : numbers){
-      if (num == digit){
-        return true;
+  public static boolean checkInt(String num){
+    try{
+      int number = Integer.parseInt(num);
+      return true;
       }
+    catch(Exception e){
+      System.out.print("invalid response. please enter a whole number, and try again:\n");
+      return false;
     }
-    System.out.println("invalid response. please enter a whole number and try again:");
-    return false;
   }
+
+  /*varifies if user input is a integer
+    Pre: user input
+    Post: returns boolean value if the input is valid or not*/
+    public static boolean checkIntBetween(int num, int min, int max){
+      int[] numbers = {1,2,3,4,5,6,7,8,9,0};
+      for (int digit : numbers){
+        if (num == digit){
+          if (digit >= min){
+            if (digit <= max){
+              return true;
+            }
+          }
+        }
+      }
+      System.out.println("\ninvalid response. please enter a whole number between " + min + " and " + max + ", and try again: ");
+      return false;
+    }
 }

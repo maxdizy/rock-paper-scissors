@@ -3,7 +3,7 @@ December 16, 2020
 ICS4U
 Mr. Hofstatter
 rockPaperScissors client
-rock paper scissors game that allows the user to choose the number of rounds and play rock paper scissors against the computer*/
+JAVA rock paper scissors game that allows the user to choose the number of rounds and play rock paper scissors against the computer*/
 import java.util.*;
 
 public class rockPaperScissorsClient{
@@ -15,10 +15,11 @@ public class rockPaperScissorsClient{
     String comPlay;
     String winner;
     //welcome and intro
+    playMedia.playMusic("gameMusic.wav");
     String name = getUserInfo.name();
     int rounds = rockPaperScissorsInterface.rounds();
     //game loop
-    while(rounds > 0){
+    while(rounds >= 0){
       play = rockPaperScissorsInterface.play();
       comPlay = rockPaperScissorsComputer.playEasy();
       winner = rockPaperScissorsComputer.calculate(play, comPlay);
@@ -28,8 +29,16 @@ public class rockPaperScissorsClient{
       if (winner.equals("computer")){
         comScore++;
       }
-      rockPaperScissorsComputer.results(winner, userScore, comScore);
-      rounds ++;
+      rockPaperScissorsComputer.results(name, winner, userScore, comScore, rounds-1);
+      rounds --;
+      if (rounds == 0){
+        if (!rockPaperScissorsInterface.gameOver(name, userScore, comScore)){
+          rounds ++;
+        }
+        else{
+          rounds--;
+        }
+      }
     }
   }
 }

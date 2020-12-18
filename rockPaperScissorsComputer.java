@@ -3,7 +3,7 @@ December 11, 2020
 ICS4U
 Mr. Hofstatter
 rockPaperScissorsComputer
-class to detrmine the computer rock paper scissors play*/
+JAVA class to detrmine the computer rock paper scissors play*/
 import java.util.*;
 
 public class rockPaperScissorsComputer{
@@ -14,15 +14,15 @@ public class rockPaperScissorsComputer{
     Random rand = new Random();
     int play = rand.nextInt(3);
     System.out.print("\nThe computer played ");
-    if (play == 1){
+    if (play + 1 == 1){
       System.out.print("rock");
       return "rock";
     }
-    else if (play == 2){
+    else if (play + 1 == 2){
       System.out.print("paper");
       return "paper";
     }
-    else if (play == 3){
+    else if (play + 1 == 3){
       System.out.print("scissors");
       return "scissors";
     }
@@ -69,19 +69,20 @@ public class rockPaperScissorsComputer{
 /*prints the results and scores after each match
   Pre: winner of the match, updated user score and updated computer score
   Post: prints the winner of the matches and the current score*/
-  public static String results(String winner, int userScore, int comScore){
+  public static String results(String name, String winner, int userScore, int comScore, int rounds){
     if (winner.equals("user")){
-      System.out.print("\n\nCongradulations!! YOU WON!!");
-      System.out.print("\n\nScore  --  You: " + userScore + "  --   Computer: " + comScore);
+      System.out.print("\n\nCongradulations you won!!");
     }
     if (winner.equals("computer")){
       System.out.print("\n\nOops you LOST!!");
-      System.out.print("\n\nScore  --  You: " + userScore + "  --   Computer: " + comScore);
     }
     if (winner.equals("tie")){
       System.out.print("\n\nIt\'s a Tie!!");
-      System.out.print("\n\nScore  --  You: " + userScore + "  --   Computer: " + comScore);
     }
+    System.out.print("\n\nScores:");
+    System.out.print("\n" + name + ": " + userScore);
+    System.out.print("\nComputer: " + comScore);
+    System.out.print("\nRounds Left: " + rounds);
     return "error";
   }
 }
