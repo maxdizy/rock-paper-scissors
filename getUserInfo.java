@@ -3,7 +3,7 @@ December 11, 2020
 ICS4U
 Mr. Hofstatter
 getUserInfo
-class to get promt user for their info*/
+JAVA class to get promt user for their info*/
 import java.util.*;
 
 public class getUserInfo{
